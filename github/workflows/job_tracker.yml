@@ -1,0 +1,45 @@
+name: Job Tracker — runs every hour
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # every hour at :00 — free tier safe
+  workflow_dispatch:        # manual trigger from GitHub Actions UI anytime
+
+jobs:
+  track-jobs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55     # kill if it hangs (fits within the 1-hour window)
+
+    permissions:
+      contents: write       # needed to commit seen_jobs.json and scraper_health.json back to repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright + Chromium
+        run: playwright install chromium --with-deps
+
+      - name: Run job tracker
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python main.py
+
+      - name: Commit updated data files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/seen_jobs.json data/scraper_health.json
+          git diff --staged --quiet || git commit -m "chore: update seen jobs + health [skip ci]"
+          git push

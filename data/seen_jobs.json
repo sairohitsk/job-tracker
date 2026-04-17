@@ -248,6 +248,7 @@
   "pw_amazon_aws_data_engineer_sptc",
   "pw_amazon_aws_data_scientist",
   "pw_amazon_aws_data_scientist_alexa_connections",
+  "pw_amazon_aws_data_scientist_amazon_books",
   "pw_amazon_aws_data_scientist_aws_quick_data",
   "pw_amazon_aws_data_scientist_demand_forecasting",
   "pw_amazon_aws_data_scientist_digital_acceleration",

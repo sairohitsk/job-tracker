@@ -32,7 +32,11 @@ COMPANIES = [
     {"name": "Arcesium",                 "ats": "greenhouse", "greenhouse_id": "arcesium", "url": "https://api.greenhouse.io/v1/boards/arcesium/jobs"},
     {"name": "Bloomberg India",          "ats": "playwright", "url": "https://careers.bloomberg.com/job/search?el=India&q={role}"},
     {"name": "BlackRock India",          "ats": "workday",    "url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Experienced_Professionals/jobs?q={role}&locations=India"},
-    {"name": "Visa India",               "ats": "workday",    "url": "https://visa.wd5.myworkdayjobs.com/en-US/SearchJobs/jobs?q={role}&locations=India"},
+    {
+  "name": "Visa India",
+  "ats": "workday",
+  "url": "https://visa.wd5.myworkdayjobs.com/en-US/Visa/jobs?q={role}&locationCountry=bc33aa3152ec42d4995f4791a3b30e02"
+},
     {"name": "HSBC Tech India",          "ats": "playwright", "url": "https://mycareer.hsbc.com/en_GB/external/SearchJobs/{role}?projectOffset=0&locations=India"},
     {"name": "Zeta",                     "ats": "greenhouse", "greenhouse_id": "zeta", "url": "https://api.greenhouse.io/v1/boards/zeta/jobs"},
     {"name": "Societe Generale India",   "ats": "playwright", "url": "https://careers.societegenerale.com/en/job-offers?q={role}&location=India"},

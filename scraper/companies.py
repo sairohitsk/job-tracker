@@ -1,5 +1,13 @@
 # companies.py — Master company list with ATS type and career page URLs
 # ATS types: "greenhouse", "lever", "workday", "playwright", "linkedin_rss"
+#
+# Last audited: May 2026
+# Changes vs previous version:
+#   FIXED  — Morgan Stanley India: Taleo retired → EightFold AI
+#   FIXED  — ServiceNow India: ATS label was "workday" but URL pointed to SmartRecruiters; corrected to "playwright"
+#   FIXED  — JP Morgan India: added locationId param for cleaner India-scoped results
+#   ADDED  — Deutsche Bank India, American Express India, Fidelity Investments India,
+#             Mastercard India, Paytm, MakeMyTrip, InMobi, Nykaa Tech, Cars24
 
 COMPANIES = [
     # ── Big Tech ──────────────────────────────────────────────────────────────
@@ -24,19 +32,17 @@ COMPANIES = [
 
     # ── Finance / Quant ───────────────────────────────────────────────────────
     {"name": "Goldman Sachs India",      "ats": "playwright", "url": "https://higher.gs.com/roles?query={role}&region=India"},
-    {"name": "JP Morgan India",          "ats": "playwright", "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword={role}&location=India"},
-    {"name": "Morgan Stanley India",     "ats": "playwright", "url": "https://ms.taleo.net/careersection/ms/jobsearch.ftl?lang=en&location=India&keyword={role}"},
+    # FIXED: JP Morgan now uses locationId for reliable India-scoped filtering
+    {"name": "JP Morgan India",          "ats": "playwright", "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword={role}&location=India&locationId=300000000289360&locationLevel=country"},
+    # FIXED: Morgan Stanley retired Taleo; now on EightFold AI
+    {"name": "Morgan Stanley India",     "ats": "playwright", "url": "https://morganstanley.eightfold.ai/careers?location=india&query={role}"},
     {"name": "D.E. Shaw India",          "ats": "playwright", "url": "https://www.deshawindia.com/careers/opportunities?department=All&location=India"},
     {"name": "Jane Street India",        "ats": "playwright", "url": "https://www.janestreet.com/join-jane-street/open-roles/?type=experienced-hire&location=india"},
     {"name": "Tower Research Capital",   "ats": "playwright", "url": "https://www.tower-research.com/open-positions"},
     {"name": "Arcesium",                 "ats": "greenhouse", "greenhouse_id": "arcesium", "url": "https://api.greenhouse.io/v1/boards/arcesium/jobs"},
     {"name": "Bloomberg India",          "ats": "playwright", "url": "https://careers.bloomberg.com/job/search?el=India&q={role}"},
     {"name": "BlackRock India",          "ats": "workday",    "url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Experienced_Professionals/jobs?q={role}&locations=India"},
-    {
-  "name": "Visa India",
-  "ats": "workday",
-  "url": "https://visa.wd5.myworkdayjobs.com/en-US/Visa/jobs?q={role}&locationCountry=bc33aa3152ec42d4995f4791a3b30e02"
-},
+    {"name": "Visa India",               "ats": "workday",    "url": "https://visa.wd5.myworkdayjobs.com/en-US/Visa/jobs?q={role}&locationCountry=bc33aa3152ec42d4995f4791a3b30e02"},
     {"name": "HSBC Tech India",          "ats": "playwright", "url": "https://mycareer.hsbc.com/en_GB/external/SearchJobs/{role}?projectOffset=0&locations=India"},
     {"name": "Zeta",                     "ats": "greenhouse", "greenhouse_id": "zeta", "url": "https://api.greenhouse.io/v1/boards/zeta/jobs"},
     {"name": "Societe Generale India",   "ats": "playwright", "url": "https://careers.societegenerale.com/en/job-offers?q={role}&location=India"},
@@ -45,6 +51,12 @@ COMPANIES = [
     {"name": "Kotak Mahindra Bank",      "ats": "playwright", "url": "https://kotakbank.com/personal/about-us/careers/current-openings.html"},
     {"name": "Kotak Securities",         "ats": "playwright", "url": "https://kotaksecurities.com/careers/"},
     {"name": "Coinbase India",           "ats": "greenhouse", "greenhouse_id": "coinbase", "url": "https://api.greenhouse.io/v1/boards/coinbase/jobs"},
+    # NEW: Major GCCs highly relevant given HSBC fraud-analytics background
+    {"name": "Deutsche Bank India",      "ats": "workday",    "url": "https://db.wd3.myworkdayjobs.com/en-US/DBWebsite/jobs?q={role}&locations=India"},
+    {"name": "American Express India",   "ats": "playwright", "url": "https://jobs.americanexpress.com/india/jobs?q={role}"},
+    {"name": "Fidelity Investments India","ats": "playwright", "url": "https://jobs.fidelity.com/in/jobs?q={role}"},
+    # NOTE: Mastercard India uses separate portal; Finicity (below) routes through same Workday org
+    {"name": "Mastercard India",         "ats": "playwright", "url": "https://careers.mastercard.com/us/en/search-results?keywords={role}&location=India"},
 
     # ── Fintech / Payments ────────────────────────────────────────────────────
     {"name": "Stripe India",             "ats": "playwright", "url": "https://stripe.com/jobs/search?location=India&query={role}"},
@@ -65,6 +77,8 @@ COMPANIES = [
     {"name": "mPokket",                  "ats": "playwright", "url": "https://mpokket.com/careers"},
     {"name": "Simpl",                    "ats": "greenhouse", "greenhouse_id": "simpl", "url": "https://api.greenhouse.io/v1/boards/simpl/jobs"},
     {"name": "Finicity",                 "ats": "workday",    "url": "https://mastercard.wd1.myworkdayjobs.com/en-US/External/jobs?q={role}&locations=India"},
+    # NEW
+    {"name": "Paytm",                    "ats": "lever",      "lever_id": "paytm", "url": "https://api.lever.co/v0/postings/paytm?mode=json"},
 
     # ── Infra / Cloud / Security ──────────────────────────────────────────────
     {"name": "Rubrik India",             "ats": "greenhouse", "greenhouse_id": "rubrik", "url": "https://api.greenhouse.io/v1/boards/rubrik/jobs"},
@@ -74,7 +88,8 @@ COMPANIES = [
     {"name": "Juniper Networks India",   "ats": "workday",    "url": "https://careers.juniper.net/careers/jobs?q={role}&location=India"},
     {"name": "Netskope India",           "ats": "greenhouse", "greenhouse_id": "netskope", "url": "https://api.greenhouse.io/v1/boards/netskope/jobs"},
     {"name": "Confluent India",          "ats": "greenhouse", "greenhouse_id": "confluent", "url": "https://api.greenhouse.io/v1/boards/confluent/jobs"},
-    {"name": "ServiceNow India",         "ats": "workday",    "url": "https://jobs.smartrecruiters.com/ServiceNow/search?keyword={role}&location=India"},
+    # FIXED: ServiceNow uses SmartRecruiters, not Workday; corrected ATS label
+    {"name": "ServiceNow India",         "ats": "playwright", "url": "https://jobs.smartrecruiters.com/ServiceNow/search?keyword={role}&location=India"},
     {"name": "Databricks India",         "ats": "greenhouse", "greenhouse_id": "databricks", "url": "https://api.greenhouse.io/v1/boards/databricks/jobs"},
     {"name": "Snowflake India",          "ats": "greenhouse", "greenhouse_id": "snowflake", "url": "https://api.greenhouse.io/v1/boards/snowflake/jobs"},
     {"name": "GitLab India",             "ats": "greenhouse", "greenhouse_id": "gitlab", "url": "https://api.greenhouse.io/v1/boards/gitlab/jobs"},
@@ -107,6 +122,11 @@ COMPANIES = [
     {"name": "Curefit",                  "ats": "greenhouse", "greenhouse_id": "curefit", "url": "https://api.greenhouse.io/v1/boards/curefit/jobs"},
     {"name": "Notion India",             "ats": "greenhouse", "greenhouse_id": "notion", "url": "https://api.greenhouse.io/v1/boards/notion/jobs"},
     {"name": "Warner Bros Discovery",    "ats": "workday",    "url": "https://warnerbros.wd5.myworkdayjobs.com/global/jobs?q={role}&locations=India"},
+    # NEW
+    {"name": "MakeMyTrip",               "ats": "playwright", "url": "https://careers.makemytrip.com/prod/jobs"},
+    {"name": "InMobi",                   "ats": "greenhouse", "greenhouse_id": "inmobi", "url": "https://api.greenhouse.io/v1/boards/inmobi/jobs"},
+    {"name": "Nykaa Tech",               "ats": "playwright", "url": "https://careers.nykaa.com/jobs?q={role}"},
+    {"name": "Cars24",                   "ats": "playwright", "url": "https://www.cars24.com/careers/"},
 
     # ── SaaS / Growth ─────────────────────────────────────────────────────────
     {"name": "Juspay",                   "ats": "greenhouse", "greenhouse_id": "juspay", "url": "https://api.greenhouse.io/v1/boards/juspay/jobs"},

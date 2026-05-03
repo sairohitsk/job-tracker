@@ -31,11 +31,17 @@
   },
   "Alphonso": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Amazon / AWS": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "American Express India": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -49,19 +55,19 @@
   },
   "Arcesium": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Atlan": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Atlassian India": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -91,13 +97,13 @@
   },
   "BrowserStack": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Builder.ai": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -109,11 +115,17 @@
   },
   "CRED": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Capgemini": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Cars24": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -127,7 +139,7 @@
   },
   "Chargebee": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -151,7 +163,7 @@
   },
   "CoinSwitch": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -163,7 +175,7 @@
   },
   "Confluent India": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -181,7 +193,7 @@
   },
   "Curefit": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -193,13 +205,13 @@
   },
   "Darwinbox": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "DataWeave": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -209,9 +221,15 @@
     "last_error": null,
     "recovered": false
   },
+  "Deutsche Bank India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "DocuSign India": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -222,6 +240,12 @@
     "recovered": false
   },
   "Experian India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Fidelity Investments India": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -241,13 +265,13 @@
   },
   "Fortanix": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Freshworks": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -295,7 +319,7 @@
   },
   "Harness": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -312,6 +336,12 @@
     "recovered": false
   },
   "IBM India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "InMobi": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -349,7 +379,7 @@
   },
   "Jeeves": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -361,13 +391,13 @@
   },
   "Juspay": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Khatabook": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -397,11 +427,23 @@
   },
   "LambdaTest": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "LinkedIn India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "MakeMyTrip": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Mastercard India": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -451,7 +493,7 @@
   },
   "Multiplier": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -463,11 +505,17 @@
   },
   "Notion India": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Nvidia India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Nykaa Tech": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -503,21 +551,27 @@
     "last_error": null,
     "recovered": false
   },
+  "Paytm": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "PhonePe": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Pixis": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Plivo": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -535,7 +589,7 @@
   },
   "Progcap": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -547,13 +601,13 @@
   },
   "Razorpay": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Rippling India": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -565,13 +619,13 @@
   },
   "SaaS Labs": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Safe Security": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -607,7 +661,7 @@
   },
   "Simpl": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -619,13 +673,13 @@
   },
   "Slice": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Snowflake India": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -643,7 +697,7 @@
   },
   "Swiggy": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -679,7 +733,7 @@
   },
   "Uptycs": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -703,7 +757,7 @@
   },
   "Whatfix": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -715,13 +769,13 @@
   },
   "Yellow.ai": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Yubi": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -733,7 +787,7 @@
   },
   "Zepto": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -745,7 +799,7 @@
   },
   "Zeta": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -769,7 +823,7 @@
   },
   "smallcase": {
     "alerted": true,
-    "consecutive_errors": 261,
+    "consecutive_errors": 262,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   }

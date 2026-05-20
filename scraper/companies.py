@@ -8,6 +8,17 @@
 #   FIXED  — JP Morgan India: added locationId param for cleaner India-scoped results
 #   ADDED  — Deutsche Bank India, American Express India, Fidelity Investments India,
 #             Mastercard India, Paytm, MakeMyTrip, InMobi, Nykaa Tech, Cars24
+#   ADDED  — (this revision) Wayfair India, Equifax India, Blackhawk Network India,
+#             Cleartrip, super.money (Flipkart Group)
+#   ADDED  — (this revision) Product-company expansions: Myntra, Delhivery, Urban Company,
+#             ShareChat, CleverTap, MoEngage, Sprinklr, Elastic India, MongoDB India,
+#             Cloudflare India, Twilio India, Lenskart, Samsara India
+#   NOTE   — Blackhawk Network (BHN): uses Lever per confirmed tech-stack data;
+#             verify lever_id "blackhawknetwork" against live API before deploy
+#   NOTE   — super.money: Flipkart Group fintech (super.money), distinct from US site
+#             supermoney.com. Custom career portal; no structured ATS API available.
+#   NOTE   — Cleartrip: acquired by Flipkart 2021; career portal is standalone.
+#   NOTE   — Equifax India: uses own ATS at careers.equifax.com (not Workday externally).
 
 COMPANIES = [
     # ── Big Tech ──────────────────────────────────────────────────────────────
@@ -25,10 +36,12 @@ COMPANIES = [
     {"name": "Micron Technology",        "ats": "workday",    "url": "https://micron.wd1.myworkdayjobs.com/External/jobs?q={role}&locations=India"},
     {"name": "ByteDance India",          "ats": "playwright", "url": "https://jobs.bytedance.com/en/position?keywords={role}&location=India"},
     {"name": "Akamai India",             "ats": "playwright", "url": "https://akamai.wd1.myworkdayjobs.com/en-US/External/jobs?q={role}&locations=India"},
-    {"name": "Airbnb India",             "ats": "greenhouse", "greenhouse_id": "airbnb", "url": "https://api.greenhouse.io/v1/boards/airbnb/jobs"},
-    {"name": "Coupang India",            "ats": "greenhouse", "greenhouse_id": "coupang", "url": "https://api.greenhouse.io/v1/boards/coupang/jobs"},
+    {"name": "Airbnb India",             "ats": "greenhouse", "greenhouse_id": "airbnb",       "url": "https://api.greenhouse.io/v1/boards/airbnb/jobs"},
+    {"name": "Coupang India",            "ats": "greenhouse", "greenhouse_id": "coupang",      "url": "https://api.greenhouse.io/v1/boards/coupang/jobs"},
     {"name": "Zalando India",            "ats": "playwright", "url": "https://jobs.zalando.com/en/jobs?locations=India&search={role}"},
     {"name": "LG Ad Solutions India",    "ats": "playwright", "url": "https://lgads.tv/careers/"},
+    # NEW: e-commerce infra with growing Bangalore engineering base
+    {"name": "Wayfair India",            "ats": "greenhouse", "greenhouse_id": "wayfair",      "url": "https://api.greenhouse.io/v1/boards/wayfair/jobs"},
 
     # ── Finance / Quant ───────────────────────────────────────────────────────
     {"name": "Goldman Sachs India",      "ats": "playwright", "url": "https://higher.gs.com/roles?query={role}&region=India"},
@@ -39,125 +52,161 @@ COMPANIES = [
     {"name": "D.E. Shaw India",          "ats": "playwright", "url": "https://www.deshawindia.com/careers/opportunities?department=All&location=India"},
     {"name": "Jane Street India",        "ats": "playwright", "url": "https://www.janestreet.com/join-jane-street/open-roles/?type=experienced-hire&location=india"},
     {"name": "Tower Research Capital",   "ats": "playwright", "url": "https://www.tower-research.com/open-positions"},
-    {"name": "Arcesium",                 "ats": "greenhouse", "greenhouse_id": "arcesium", "url": "https://api.greenhouse.io/v1/boards/arcesium/jobs"},
+    {"name": "Arcesium",                 "ats": "greenhouse", "greenhouse_id": "arcesium",     "url": "https://api.greenhouse.io/v1/boards/arcesium/jobs"},
     {"name": "Bloomberg India",          "ats": "playwright", "url": "https://careers.bloomberg.com/job/search?el=India&q={role}"},
     {"name": "BlackRock India",          "ats": "workday",    "url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Experienced_Professionals/jobs?q={role}&locations=India"},
     {"name": "Visa India",               "ats": "workday",    "url": "https://visa.wd5.myworkdayjobs.com/en-US/Visa/jobs?q={role}&locationCountry=bc33aa3152ec42d4995f4791a3b30e02"},
     {"name": "HSBC Tech India",          "ats": "playwright", "url": "https://mycareer.hsbc.com/en_GB/external/SearchJobs/{role}?projectOffset=0&locations=India"},
-    {"name": "Zeta",                     "ats": "greenhouse", "greenhouse_id": "zeta", "url": "https://api.greenhouse.io/v1/boards/zeta/jobs"},
+    {"name": "Zeta",                     "ats": "greenhouse", "greenhouse_id": "zeta",         "url": "https://api.greenhouse.io/v1/boards/zeta/jobs"},
     {"name": "Societe Generale India",   "ats": "playwright", "url": "https://careers.societegenerale.com/en/job-offers?q={role}&location=India"},
     {"name": "Barclays India",           "ats": "playwright", "url": "https://search.jobs.barclays/search-jobs/{role}/India/22545/1/2/3/3/0/0"},
     {"name": "Citi India",               "ats": "workday",    "url": "https://citi.wd5.myworkdayjobs.com/en-US/ICG/jobs?q={role}&locations=India"},
     {"name": "Kotak Mahindra Bank",      "ats": "playwright", "url": "https://kotakbank.com/personal/about-us/careers/current-openings.html"},
     {"name": "Kotak Securities",         "ats": "playwright", "url": "https://kotaksecurities.com/careers/"},
-    {"name": "Coinbase India",           "ats": "greenhouse", "greenhouse_id": "coinbase", "url": "https://api.greenhouse.io/v1/boards/coinbase/jobs"},
-    # NEW: Major GCCs highly relevant given HSBC fraud-analytics background
+    {"name": "Coinbase India",           "ats": "greenhouse", "greenhouse_id": "coinbase",     "url": "https://api.greenhouse.io/v1/boards/coinbase/jobs"},
+    # GCCs relevant to fraud-analytics / data engineering backgrounds
     {"name": "Deutsche Bank India",      "ats": "workday",    "url": "https://db.wd3.myworkdayjobs.com/en-US/DBWebsite/jobs?q={role}&locations=India"},
     {"name": "American Express India",   "ats": "playwright", "url": "https://jobs.americanexpress.com/india/jobs?q={role}"},
     {"name": "Fidelity Investments India","ats": "playwright", "url": "https://jobs.fidelity.com/in/jobs?q={role}"},
-    # NOTE: Mastercard India uses separate portal; Finicity (below) routes through same Workday org
     {"name": "Mastercard India",         "ats": "playwright", "url": "https://careers.mastercard.com/us/en/search-results?keywords={role}&location=India"},
+    # NEW: Data/credit analytics GCC; Pune + Bangalore engineering hubs
+    # NOTE: careers.equifax.com uses a proprietary ATS (not Workday); scrape via playwright
+    {"name": "Equifax India",            "ats": "playwright", "url": "https://careers.equifax.com/en/jobs/?keyword={role}&location=India"},
 
     # ── Fintech / Payments ────────────────────────────────────────────────────
     {"name": "Stripe India",             "ats": "playwright", "url": "https://stripe.com/jobs/search?location=India&query={role}"},
     {"name": "PayPal India",             "ats": "workday",    "url": "https://paypal.wd1.myworkdayjobs.com/jobs?q={role}&locations=India"},
-    {"name": "Razorpay",                 "ats": "lever",      "lever_id": "razorpay", "url": "https://api.lever.co/v0/postings/razorpay?mode=json"},
+    {"name": "Razorpay",                 "ats": "lever",      "lever_id": "razorpay",          "url": "https://api.lever.co/v0/postings/razorpay?mode=json"},
     {"name": "Intuit India",             "ats": "workday",    "url": "https://intuit.wd1.myworkdayjobs.com/en-US/Intuit_Careers/jobs?q={role}&locations=India"},
-    {"name": "Rippling India",           "ats": "greenhouse", "greenhouse_id": "rippling", "url": "https://api.greenhouse.io/v1/boards/rippling/jobs"},
-    {"name": "PhonePe",                  "ats": "lever",      "lever_id": "phonepe", "url": "https://api.lever.co/v0/postings/phonepe?mode=json"},
+    {"name": "Rippling India",           "ats": "greenhouse", "greenhouse_id": "rippling",     "url": "https://api.greenhouse.io/v1/boards/rippling/jobs"},
+    {"name": "PhonePe",                  "ats": "lever",      "lever_id": "phonepe",           "url": "https://api.lever.co/v0/postings/phonepe?mode=json"},
     {"name": "Zerodha",                  "ats": "playwright", "url": "https://zerodha.com/careers/#openings"},
-    {"name": "Groww",                    "ats": "greenhouse", "greenhouse_id": "groww", "url": "https://api.greenhouse.io/v1/boards/groww/jobs"},
-    {"name": "CoinSwitch",               "ats": "lever",      "lever_id": "coinswitch", "url": "https://api.lever.co/v0/postings/coinswitch?mode=json"},
-    {"name": "Yubi",                     "ats": "lever",      "lever_id": "yubi", "url": "https://api.lever.co/v0/postings/yubi?mode=json"},
-    {"name": "Slice",                    "ats": "lever",      "lever_id": "sliceit", "url": "https://api.lever.co/v0/postings/sliceit?mode=json"},
-    {"name": "smallcase",                "ats": "greenhouse", "greenhouse_id": "smallcase", "url": "https://api.greenhouse.io/v1/boards/smallcase/jobs"},
-    {"name": "Jeeves",                   "ats": "greenhouse", "greenhouse_id": "jeeveshq", "url": "https://api.greenhouse.io/v1/boards/jeeveshq/jobs"},
-    {"name": "Khatabook",                "ats": "greenhouse", "greenhouse_id": "khatabook", "url": "https://api.greenhouse.io/v1/boards/khatabook/jobs"},
-    {"name": "Progcap",                  "ats": "greenhouse", "greenhouse_id": "progcap", "url": "https://api.greenhouse.io/v1/boards/progcap/jobs"},
+    {"name": "Groww",                    "ats": "greenhouse", "greenhouse_id": "groww",        "url": "https://api.greenhouse.io/v1/boards/groww/jobs"},
+    {"name": "CoinSwitch",               "ats": "lever",      "lever_id": "coinswitch",        "url": "https://api.lever.co/v0/postings/coinswitch?mode=json"},
+    {"name": "Yubi",                     "ats": "lever",      "lever_id": "yubi",              "url": "https://api.lever.co/v0/postings/yubi?mode=json"},
+    {"name": "Slice",                    "ats": "lever",      "lever_id": "sliceit",           "url": "https://api.lever.co/v0/postings/sliceit?mode=json"},
+    {"name": "smallcase",                "ats": "greenhouse", "greenhouse_id": "smallcase",    "url": "https://api.greenhouse.io/v1/boards/smallcase/jobs"},
+    {"name": "Jeeves",                   "ats": "greenhouse", "greenhouse_id": "jeeveshq",     "url": "https://api.greenhouse.io/v1/boards/jeeveshq/jobs"},
+    {"name": "Khatabook",                "ats": "greenhouse", "greenhouse_id": "khatabook",    "url": "https://api.greenhouse.io/v1/boards/khatabook/jobs"},
+    {"name": "Progcap",                  "ats": "greenhouse", "greenhouse_id": "progcap",      "url": "https://api.greenhouse.io/v1/boards/progcap/jobs"},
     {"name": "mPokket",                  "ats": "playwright", "url": "https://mpokket.com/careers"},
-    {"name": "Simpl",                    "ats": "greenhouse", "greenhouse_id": "simpl", "url": "https://api.greenhouse.io/v1/boards/simpl/jobs"},
+    {"name": "Simpl",                    "ats": "greenhouse", "greenhouse_id": "simpl",        "url": "https://api.greenhouse.io/v1/boards/simpl/jobs"},
+    # NOTE: Finicity routes through Mastercard's Workday org
     {"name": "Finicity",                 "ats": "workday",    "url": "https://mastercard.wd1.myworkdayjobs.com/en-US/External/jobs?q={role}&locations=India"},
-    # NEW
-    {"name": "Paytm",                    "ats": "lever",      "lever_id": "paytm", "url": "https://api.lever.co/v0/postings/paytm?mode=json"},
+    {"name": "Paytm",                    "ats": "lever",      "lever_id": "paytm",             "url": "https://api.lever.co/v0/postings/paytm?mode=json"},
+    # NEW: Prepaid / gift-card fintech GCC; Bengaluru engineering hub; uses Lever ATS
+    # NOTE: lever_id "blackhawknetwork" — validate against https://api.lever.co/v0/postings/blackhawknetwork before first run
+    {"name": "Blackhawk Network India",  "ats": "lever",      "lever_id": "blackhawknetwork",  "url": "https://api.lever.co/v0/postings/blackhawknetwork?mode=json"},
+    # NEW: Flipkart Group consumer fintech (super.money); custom career portal
+    {"name": "super.money",              "ats": "playwright", "url": "https://super.money/careers"},
 
     # ── Infra / Cloud / Security ──────────────────────────────────────────────
-    {"name": "Rubrik India",             "ats": "greenhouse", "greenhouse_id": "rubrik", "url": "https://api.greenhouse.io/v1/boards/rubrik/jobs"},
+    {"name": "Rubrik India",             "ats": "greenhouse", "greenhouse_id": "rubrik",       "url": "https://api.greenhouse.io/v1/boards/rubrik/jobs"},
     {"name": "Cisco India",              "ats": "workday",    "url": "https://jobs.cisco.com/jobs/SearchJobs/{role}?listFilterMode=1&location=India"},
     {"name": "IBM India",                "ats": "playwright", "url": "https://www.ibm.com/employment/in/en/search/?q={role}&options=Location%3AIndia"},
     {"name": "Oracle India",             "ats": "playwright", "url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/jobsearch/jobs?keyword={role}&location=India"},
     {"name": "Juniper Networks India",   "ats": "workday",    "url": "https://careers.juniper.net/careers/jobs?q={role}&location=India"},
-    {"name": "Netskope India",           "ats": "greenhouse", "greenhouse_id": "netskope", "url": "https://api.greenhouse.io/v1/boards/netskope/jobs"},
-    {"name": "Confluent India",          "ats": "greenhouse", "greenhouse_id": "confluent", "url": "https://api.greenhouse.io/v1/boards/confluent/jobs"},
+    {"name": "Netskope India",           "ats": "greenhouse", "greenhouse_id": "netskope",     "url": "https://api.greenhouse.io/v1/boards/netskope/jobs"},
+    {"name": "Confluent India",          "ats": "greenhouse", "greenhouse_id": "confluent",    "url": "https://api.greenhouse.io/v1/boards/confluent/jobs"},
     # FIXED: ServiceNow uses SmartRecruiters, not Workday; corrected ATS label
     {"name": "ServiceNow India",         "ats": "playwright", "url": "https://jobs.smartrecruiters.com/ServiceNow/search?keyword={role}&location=India"},
-    {"name": "Databricks India",         "ats": "greenhouse", "greenhouse_id": "databricks", "url": "https://api.greenhouse.io/v1/boards/databricks/jobs"},
-    {"name": "Snowflake India",          "ats": "greenhouse", "greenhouse_id": "snowflake", "url": "https://api.greenhouse.io/v1/boards/snowflake/jobs"},
-    {"name": "GitLab India",             "ats": "greenhouse", "greenhouse_id": "gitlab", "url": "https://api.greenhouse.io/v1/boards/gitlab/jobs"},
+    {"name": "Databricks India",         "ats": "greenhouse", "greenhouse_id": "databricks",   "url": "https://api.greenhouse.io/v1/boards/databricks/jobs"},
+    {"name": "Snowflake India",          "ats": "greenhouse", "greenhouse_id": "snowflake",    "url": "https://api.greenhouse.io/v1/boards/snowflake/jobs"},
+    {"name": "GitLab India",             "ats": "greenhouse", "greenhouse_id": "gitlab",       "url": "https://api.greenhouse.io/v1/boards/gitlab/jobs"},
     {"name": "Palo Alto Networks India", "ats": "workday",    "url": "https://jobs.paloaltonetworks.com/en/jobs?q={role}&location=India"},
-    {"name": "Uptycs",                   "ats": "greenhouse", "greenhouse_id": "uptycs", "url": "https://api.greenhouse.io/v1/boards/uptycs/jobs"},
-    {"name": "Fortanix",                 "ats": "greenhouse", "greenhouse_id": "fortanix", "url": "https://api.greenhouse.io/v1/boards/fortanix/jobs"},
+    {"name": "Uptycs",                   "ats": "greenhouse", "greenhouse_id": "uptycs",       "url": "https://api.greenhouse.io/v1/boards/uptycs/jobs"},
+    {"name": "Fortanix",                 "ats": "greenhouse", "greenhouse_id": "fortanix",     "url": "https://api.greenhouse.io/v1/boards/fortanix/jobs"},
     {"name": "Safe Security",            "ats": "greenhouse", "greenhouse_id": "safesecurity", "url": "https://api.greenhouse.io/v1/boards/safesecurity/jobs"},
     {"name": "Teradata India",           "ats": "workday",    "url": "https://teradata.wd1.myworkdayjobs.com/Teradata_Careers/jobs?q={role}&locations=India"},
     {"name": "Hyland India",             "ats": "playwright", "url": "https://www.hyland.com/en/company/careers/job-search?q={role}&location=India"},
     {"name": "Siemens India",            "ats": "playwright", "url": "https://jobs.siemens.com/careers?query={role}&location=India"},
     {"name": "Experian India",           "ats": "workday",    "url": "https://experian.wd3.myworkdayjobs.com/Experian_Careers/jobs?q={role}&locations=India"},
-    {"name": "DocuSign India",           "ats": "greenhouse", "greenhouse_id": "docusign", "url": "https://api.greenhouse.io/v1/boards/docusign/jobs"},
+    {"name": "DocuSign India",           "ats": "greenhouse", "greenhouse_id": "docusign",     "url": "https://api.greenhouse.io/v1/boards/docusign/jobs"},
+    # NEW: Distributed systems / search infra — Bangalore engineering present
+    {"name": "Elastic India",            "ats": "greenhouse", "greenhouse_id": "elastic",      "url": "https://api.greenhouse.io/v1/boards/elastic/jobs"},
+    # NEW: Leading document DB; Pune + Hyderabad GCC
+    {"name": "MongoDB India",            "ats": "greenhouse", "greenhouse_id": "mongodb",      "url": "https://api.greenhouse.io/v1/boards/mongodb/jobs"},
+    # NEW: Edge/network infra; Bangalore office; strong distributed-systems hiring
+    {"name": "Cloudflare India",         "ats": "greenhouse", "greenhouse_id": "cloudflare",   "url": "https://api.greenhouse.io/v1/boards/cloudflare/jobs"},
+    # NEW: CPaaS / communications APIs; India is a major engineering hub
+    {"name": "Twilio India",             "ats": "workday",    "url": "https://boards.greenhouse.io/twilio"},
+    # NEW: IoT/fleet SaaS; Hyderabad R&D centre
+    {"name": "Samsara India",            "ats": "greenhouse", "greenhouse_id": "samsara",      "url": "https://api.greenhouse.io/v1/boards/samsara/jobs"},
 
     # ── Unicorns / Startups ───────────────────────────────────────────────────
     {"name": "Flipkart",                 "ats": "playwright", "url": "https://www.flipkartcareers.com/#!/joblist"},
-    {"name": "Swiggy",                   "ats": "lever",      "lever_id": "swiggy", "url": "https://api.lever.co/v0/postings/swiggy?mode=json"},
+    {"name": "Swiggy",                   "ats": "lever",      "lever_id": "swiggy",            "url": "https://api.lever.co/v0/postings/swiggy?mode=json"},
     {"name": "Zomato",                   "ats": "playwright", "url": "https://www.zomato.com/careers#jobs"},
-    {"name": "Freshworks",               "ats": "greenhouse", "greenhouse_id": "freshworks", "url": "https://api.greenhouse.io/v1/boards/freshworks/jobs"},
+    {"name": "Freshworks",               "ats": "greenhouse", "greenhouse_id": "freshworks",   "url": "https://api.greenhouse.io/v1/boards/freshworks/jobs"},
     {"name": "Zoho",                     "ats": "playwright", "url": "https://careers.zohocorp.com/jobs/Careers"},
-    {"name": "Atlassian India",          "ats": "greenhouse", "greenhouse_id": "atlassian", "url": "https://api.greenhouse.io/v1/boards/atlassian/jobs"},
-    {"name": "Meesho",                   "ats": "lever",      "lever_id": "meesho", "url": "https://api.lever.co/v0/postings/meesho?mode=json"},
-    {"name": "CRED",                     "ats": "lever",      "lever_id": "dreamplug", "url": "https://api.lever.co/v0/postings/dreamplug?mode=json"},
-    {"name": "Zepto",                    "ats": "lever",      "lever_id": "zepto", "url": "https://api.lever.co/v0/postings/zepto?mode=json"},
+    {"name": "Atlassian India",          "ats": "greenhouse", "greenhouse_id": "atlassian",    "url": "https://api.greenhouse.io/v1/boards/atlassian/jobs"},
+    {"name": "Meesho",                   "ats": "lever",      "lever_id": "meesho",            "url": "https://api.lever.co/v0/postings/meesho?mode=json"},
+    {"name": "CRED",                     "ats": "lever",      "lever_id": "dreamplug",         "url": "https://api.lever.co/v0/postings/dreamplug?mode=json"},
+    {"name": "Zepto",                    "ats": "lever",      "lever_id": "zepto",             "url": "https://api.lever.co/v0/postings/zepto?mode=json"},
     {"name": "Dream11",                  "ats": "playwright", "url": "https://careers.dream11.com/"},
     {"name": "Ola / Ola Electric",       "ats": "playwright", "url": "https://careers.ola.com/jobs?q={role}"},
     {"name": "PolicyBazaar",             "ats": "playwright", "url": "https://jobs.policybazaar.com/"},
     {"name": "Uber India",               "ats": "playwright", "url": "https://www.uber.com/us/en/careers/jobs/?query={role}&location=India"},
     {"name": "Booking.com India",        "ats": "playwright", "url": "https://jobs.booking.com/careers?q={role}&location=India"},
     {"name": "Agoda India",              "ats": "playwright", "url": "https://careersatagoda.com/jobs/?s={role}&location=India"},
-    {"name": "Curefit",                  "ats": "greenhouse", "greenhouse_id": "curefit", "url": "https://api.greenhouse.io/v1/boards/curefit/jobs"},
-    {"name": "Notion India",             "ats": "greenhouse", "greenhouse_id": "notion", "url": "https://api.greenhouse.io/v1/boards/notion/jobs"},
+    {"name": "Curefit",                  "ats": "greenhouse", "greenhouse_id": "curefit",      "url": "https://api.greenhouse.io/v1/boards/curefit/jobs"},
+    {"name": "Notion India",             "ats": "greenhouse", "greenhouse_id": "notion",       "url": "https://api.greenhouse.io/v1/boards/notion/jobs"},
     {"name": "Warner Bros Discovery",    "ats": "workday",    "url": "https://warnerbros.wd5.myworkdayjobs.com/global/jobs?q={role}&locations=India"},
-    # NEW
     {"name": "MakeMyTrip",               "ats": "playwright", "url": "https://careers.makemytrip.com/prod/jobs"},
-    {"name": "InMobi",                   "ats": "greenhouse", "greenhouse_id": "inmobi", "url": "https://api.greenhouse.io/v1/boards/inmobi/jobs"},
+    {"name": "InMobi",                   "ats": "greenhouse", "greenhouse_id": "inmobi",       "url": "https://api.greenhouse.io/v1/boards/inmobi/jobs"},
     {"name": "Nykaa Tech",               "ats": "playwright", "url": "https://careers.nykaa.com/jobs?q={role}"},
     {"name": "Cars24",                   "ats": "playwright", "url": "https://www.cars24.com/careers/"},
+    # NEW: Flipkart-owned fashion e-commerce; large Bangalore product+eng org
+    # NOTE: Myntra's public career page is custom; no structured ATS API — scrape via playwright
+    {"name": "Myntra",                   "ats": "playwright", "url": "https://careers.myntra.com/jobs?q={role}"},
+    # NEW: Largest Indian short-video / social platform; Bangalore HQ
+    {"name": "ShareChat",                "ats": "greenhouse", "greenhouse_id": "sharechat",    "url": "https://api.greenhouse.io/v1/boards/sharechat/jobs"},
+    # NEW: Home services platform; Bangalore HQ; strong backend/mobile hiring
+    {"name": "Urban Company",            "ats": "greenhouse", "greenhouse_id": "urbancompany", "url": "https://api.greenhouse.io/v1/boards/urbancompany/jobs"},
+    # NEW: Travel OTA acquired by Flipkart; standalone career portal
+    # NOTE: careers.cleartrip.com is a custom portal — no structured search params
+    {"name": "Cleartrip",                "ats": "playwright", "url": "https://careers.cleartrip.com/"},
+    # NEW: Listed logistics unicorn; Gurugram HQ
+    {"name": "Delhivery",                "ats": "playwright", "url": "https://careers.delhivery.com/jobs?q={role}"},
+    # NEW: Eyewear + tech; Bangalore; large product engineering team
+    {"name": "Lenskart",                 "ats": "playwright", "url": "https://careers.lenskart.com/jobs?q={role}"},
 
     # ── SaaS / Growth ─────────────────────────────────────────────────────────
-    {"name": "Juspay",                   "ats": "greenhouse", "greenhouse_id": "juspay", "url": "https://api.greenhouse.io/v1/boards/juspay/jobs"},
-    {"name": "Atlan",                    "ats": "greenhouse", "greenhouse_id": "atlan", "url": "https://api.greenhouse.io/v1/boards/atlan/jobs"},
-    {"name": "Instabase",                "ats": "greenhouse", "greenhouse_id": "instabase", "url": "https://api.greenhouse.io/v1/boards/instabase/jobs"},
-    {"name": "Yellow.ai",                "ats": "lever",      "lever_id": "yellowmessenger", "url": "https://api.lever.co/v0/postings/yellowmessenger?mode=json"},
-    {"name": "Hevo Data",                "ats": "lever",      "lever_id": "hevo", "url": "https://api.lever.co/v0/postings/hevo?mode=json"},
-    {"name": "Observe.AI",               "ats": "greenhouse", "greenhouse_id": "observeai", "url": "https://api.greenhouse.io/v1/boards/observeai/jobs"},
-    {"name": "Harness",                  "ats": "greenhouse", "greenhouse_id": "harness", "url": "https://api.greenhouse.io/v1/boards/harness/jobs"},
-    {"name": "Plivo",                    "ats": "greenhouse", "greenhouse_id": "plivo", "url": "https://api.greenhouse.io/v1/boards/plivo/jobs"},
-    {"name": "LambdaTest",               "ats": "lever",      "lever_id": "lambdatest", "url": "https://api.lever.co/v0/postings/lambdatest?mode=json"},
-    {"name": "Multiplier",               "ats": "greenhouse", "greenhouse_id": "multiplier", "url": "https://api.greenhouse.io/v1/boards/multiplier/jobs"},
-    {"name": "Simpplr",                  "ats": "greenhouse", "greenhouse_id": "simpplr", "url": "https://api.greenhouse.io/v1/boards/simpplr/jobs"},
-    {"name": "Pixis",                    "ats": "greenhouse", "greenhouse_id": "pixis", "url": "https://api.greenhouse.io/v1/boards/pixis/jobs"},
-    {"name": "Moveworks",                "ats": "greenhouse", "greenhouse_id": "moveworks", "url": "https://api.greenhouse.io/v1/boards/moveworks/jobs"},
-    {"name": "Sigmoid",                  "ats": "greenhouse", "greenhouse_id": "sigmoid", "url": "https://api.greenhouse.io/v1/boards/sigmoid/jobs"},
-    {"name": "Tenstorrent",              "ats": "greenhouse", "greenhouse_id": "tenstorrent", "url": "https://api.greenhouse.io/v1/boards/tenstorrent/jobs"},
-    {"name": "DataWeave",                "ats": "greenhouse", "greenhouse_id": "dataweave", "url": "https://api.greenhouse.io/v1/boards/dataweave/jobs"},
+    {"name": "Juspay",                   "ats": "greenhouse", "greenhouse_id": "juspay",       "url": "https://api.greenhouse.io/v1/boards/juspay/jobs"},
+    {"name": "Atlan",                    "ats": "greenhouse", "greenhouse_id": "atlan",        "url": "https://api.greenhouse.io/v1/boards/atlan/jobs"},
+    {"name": "Instabase",                "ats": "greenhouse", "greenhouse_id": "instabase",    "url": "https://api.greenhouse.io/v1/boards/instabase/jobs"},
+    {"name": "Yellow.ai",                "ats": "lever",      "lever_id": "yellowmessenger",   "url": "https://api.lever.co/v0/postings/yellowmessenger?mode=json"},
+    {"name": "Hevo Data",                "ats": "lever",      "lever_id": "hevo",              "url": "https://api.lever.co/v0/postings/hevo?mode=json"},
+    {"name": "Observe.AI",               "ats": "greenhouse", "greenhouse_id": "observeai",    "url": "https://api.greenhouse.io/v1/boards/observeai/jobs"},
+    {"name": "Harness",                  "ats": "greenhouse", "greenhouse_id": "harness",      "url": "https://api.greenhouse.io/v1/boards/harness/jobs"},
+    {"name": "Plivo",                    "ats": "greenhouse", "greenhouse_id": "plivo",        "url": "https://api.greenhouse.io/v1/boards/plivo/jobs"},
+    {"name": "LambdaTest",               "ats": "lever",      "lever_id": "lambdatest",        "url": "https://api.lever.co/v0/postings/lambdatest?mode=json"},
+    {"name": "Multiplier",               "ats": "greenhouse", "greenhouse_id": "multiplier",   "url": "https://api.greenhouse.io/v1/boards/multiplier/jobs"},
+    {"name": "Simpplr",                  "ats": "greenhouse", "greenhouse_id": "simpplr",      "url": "https://api.greenhouse.io/v1/boards/simpplr/jobs"},
+    {"name": "Pixis",                    "ats": "greenhouse", "greenhouse_id": "pixis",        "url": "https://api.greenhouse.io/v1/boards/pixis/jobs"},
+    {"name": "Moveworks",                "ats": "greenhouse", "greenhouse_id": "moveworks",    "url": "https://api.greenhouse.io/v1/boards/moveworks/jobs"},
+    {"name": "Sigmoid",                  "ats": "greenhouse", "greenhouse_id": "sigmoid",      "url": "https://api.greenhouse.io/v1/boards/sigmoid/jobs"},
+    {"name": "Tenstorrent",              "ats": "greenhouse", "greenhouse_id": "tenstorrent",  "url": "https://api.greenhouse.io/v1/boards/tenstorrent/jobs"},
+    {"name": "DataWeave",                "ats": "greenhouse", "greenhouse_id": "dataweave",    "url": "https://api.greenhouse.io/v1/boards/dataweave/jobs"},
     {"name": "Contentstack",             "ats": "greenhouse", "greenhouse_id": "contentstack", "url": "https://api.greenhouse.io/v1/boards/contentstack/jobs"},
-    {"name": "Builder.ai",               "ats": "greenhouse", "greenhouse_id": "builderai", "url": "https://api.greenhouse.io/v1/boards/builderai/jobs"},
-    {"name": "SaaS Labs",                "ats": "greenhouse", "greenhouse_id": "saaslabs", "url": "https://api.greenhouse.io/v1/boards/saaslabs/jobs"},
+    {"name": "Builder.ai",               "ats": "greenhouse", "greenhouse_id": "builderai",    "url": "https://api.greenhouse.io/v1/boards/builderai/jobs"},
+    {"name": "SaaS Labs",                "ats": "greenhouse", "greenhouse_id": "saaslabs",     "url": "https://api.greenhouse.io/v1/boards/saaslabs/jobs"},
     {"name": "Seclore",                  "ats": "playwright", "url": "https://www.seclore.com/careers/"},
-    {"name": "Catchpoint",               "ats": "greenhouse", "greenhouse_id": "catchpoint", "url": "https://api.greenhouse.io/v1/boards/catchpoint/jobs"},
+    {"name": "Catchpoint",               "ats": "greenhouse", "greenhouse_id": "catchpoint",   "url": "https://api.greenhouse.io/v1/boards/catchpoint/jobs"},
     {"name": "HackerEarth",              "ats": "playwright", "url": "https://www.hackerearth.com/company/hackerearth/jobs/"},
-    {"name": "Postman",                  "ats": "greenhouse", "greenhouse_id": "postman", "url": "https://api.greenhouse.io/v1/boards/postman/jobs"},
+    {"name": "Postman",                  "ats": "greenhouse", "greenhouse_id": "postman",      "url": "https://api.greenhouse.io/v1/boards/postman/jobs"},
     {"name": "BrowserStack",             "ats": "greenhouse", "greenhouse_id": "browserstack", "url": "https://api.greenhouse.io/v1/boards/browserstack/jobs"},
-    {"name": "Chargebee",                "ats": "greenhouse", "greenhouse_id": "chargebee", "url": "https://api.greenhouse.io/v1/boards/chargebee/jobs"},
-    {"name": "Darwinbox",                "ats": "greenhouse", "greenhouse_id": "darwinbox", "url": "https://api.greenhouse.io/v1/boards/darwinbox/jobs"},
-    {"name": "Whatfix",                  "ats": "greenhouse", "greenhouse_id": "whatfix", "url": "https://api.greenhouse.io/v1/boards/whatfix/jobs"},
+    {"name": "Chargebee",                "ats": "greenhouse", "greenhouse_id": "chargebee",    "url": "https://api.greenhouse.io/v1/boards/chargebee/jobs"},
+    {"name": "Darwinbox",                "ats": "greenhouse", "greenhouse_id": "darwinbox",    "url": "https://api.greenhouse.io/v1/boards/darwinbox/jobs"},
+    {"name": "Whatfix",                  "ats": "greenhouse", "greenhouse_id": "whatfix",      "url": "https://api.greenhouse.io/v1/boards/whatfix/jobs"},
     {"name": "Salesforce India",         "ats": "workday",    "url": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site/jobs?q={role}&locations=India"},
-    {"name": "Alphonso",                 "ats": "greenhouse", "greenhouse_id": "alphonso", "url": "https://api.greenhouse.io/v1/boards/alphonso/jobs"},
+    {"name": "Alphonso",                 "ats": "greenhouse", "greenhouse_id": "alphonso",     "url": "https://api.greenhouse.io/v1/boards/alphonso/jobs"},
+    # NEW: Unified CXM platform; Bangalore R&D centre; hiring ML/platform engineers
+    {"name": "Sprinklr India",           "ats": "greenhouse", "greenhouse_id": "sprinklr",     "url": "https://api.greenhouse.io/v1/boards/sprinklr/jobs"},
+    # NEW: Mobile marketing automation; Bangalore HQ
+    {"name": "MoEngage",                 "ats": "greenhouse", "greenhouse_id": "moengage",     "url": "https://api.greenhouse.io/v1/boards/moengage/jobs"},
+    # NEW: Mobile analytics + engagement; Bangalore HQ
+    {"name": "CleverTap",                "ats": "greenhouse", "greenhouse_id": "clevertap",    "url": "https://api.greenhouse.io/v1/boards/clevertap/jobs"},
 
     # ── IT Services ───────────────────────────────────────────────────────────
     {"name": "Infosys",                  "ats": "playwright", "url": "https://career.infosys.com/joblist?src=1&type=1"},

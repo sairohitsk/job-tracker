@@ -606,4 +606,49 @@ COMPANIES = [
     {"name": "Boeing",                    "ats": "playwright", "url": "https://jobs.boeing.com/"},
     {"name": "Booz Allen Hamilton",       "ats": "playwright", "url": "https://careers.boozallen.com/"},
     {"name": "Arrow Electronics",         "ats": "playwright", "url": "https://careers.arrow.com/"},
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # ── Revision 3 (July 19, 2026) — user's follow-up batch ─────────────────────
+    # CONFIRMED live via search
+    {"name": "SLB",                       "ats": "playwright", "url": "https://apply.slb.com/careers/profile"},
+    {"name": "Koch Industries",           "ats": "playwright", "url": "https://jobs.kochcareers.com/en/search/jobs/in/country/india"},
+    {"name": "Autodesk",                  "ats": "playwright", "url": "https://www.autodesk.com/careers/search-jobs?location=India"},
+    # CONFIRMED live — TrueFirms is a B2B IT staff-augmentation marketplace, not a
+    # typical employer with an internal jobs board; listed here as requested but
+    # note it functions more like a staffing/agency directory than a direct employer
+    {"name": "TrueFirms",                 "ats": "playwright", "url": "https://www.truefirms.co/jobs"},
+    # NOTE: "carousel" is too generic to confidently resolve to one company (could be
+    # Carousell, the Singapore marketplace, or something else entirely) — flagged
+    # rather than guessed; confirm the exact company before deploying
+    {"name": "Carousel (unconfirmed)",    "ats": "playwright", "url": ""},
+    # NOTE: "emergent" is too generic to confidently resolve (Emergent BioSolutions?
+    # a specific startup named Emergent?) — flagged rather than guessed
+    {"name": "Emergent (unconfirmed)",    "ats": "playwright", "url": ""},
+    {"name": "Emerson",                   "ats": "playwright", "url": "https://www.emerson.com/en/corporate/careers"},
+    # CONFIRMED live — YC-backed options-trading backtester, Indian retail-trader focus
+    {"name": "AlgoTest",                  "ats": "playwright", "url": "https://algotest.in/careers"},
+    # NOTE: could not confidently identify a company literally named "Brocolli" —
+    # flagged with an empty URL rather than guessed; please double-check this name
+    {"name": "Brocolli (unconfirmed)",    "ats": "playwright", "url": ""},
+    # NOTE: there's a "Matiks" (Internshala-listed, no live openings at time of
+    # writing) and an unrelated "Matik" (US-based, data/AI reporting tool) — these
+    # are two different companies with similar names; using the Indian "Matiks"
+    # since that matches the context of your other additions, but please confirm
+    {"name": "Matiks",                    "ats": "playwright", "url": ""},
+    {"name": "Trellix",                   "ats": "playwright", "url": "https://www.trellix.com/about/careers/"},
+    {"name": "Lowe's India",              "ats": "playwright", "url": "https://talent.lowes.com/us/en/lowes-india"},
+    {"name": "Wingify",                   "ats": "playwright", "url": "https://wingify.com/careers/"},
+    # NOTE: "layer up" is too generic to confidently resolve to one company —
+    # flagged rather than guessed; confirm the exact company name
+    {"name": "Layer Up (unconfirmed)",    "ats": "playwright", "url": ""},
+    {"name": "Nike",                      "ats": "playwright", "url": "https://jobs.nike.com/?location=India"},
+    {"name": "Honeywell",                 "ats": "playwright", "url": "https://careers.honeywell.com/us/en/search-results?location=India"},
+    # CONFIRMED live — Redrob is a Seoul/Delhi/Mumbai/NY LLM-application startup;
+    # official company domain unverified, using the Wellfound listing as the source
+    {"name": "Redrob",                    "ats": "playwright", "url": "https://wellfound.com/company/redrobofficial/jobs"},
+    # NOTE: "Milestone" is too generic (Milestone Systems? a different firm?) —
+    # flagged rather than guessed; confirm the exact company name
+    {"name": "Milestone (unconfirmed)",   "ats": "playwright", "url": ""},
+    {"name": "Redis",                     "ats": "playwright", "url": "https://redis.io/careers/"},
+    {"name": "Red Hat",                   "ats": "playwright", "url": "https://www.redhat.com/en/jobs"},
 ]

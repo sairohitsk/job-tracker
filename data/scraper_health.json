@@ -5,6 +5,12 @@
     "last_error": null,
     "recovered": false
   },
+  "AQR Capital": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "ARKS Ventures": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -47,6 +53,18 @@
     "last_error": null,
     "recovered": false
   },
+  "Akuna Capital": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "AlgoTest": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "AlphaSense": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -55,7 +73,7 @@
   },
   "Alphonso": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -71,6 +89,12 @@
     "last_error": null,
     "recovered": false
   },
+  "Anthropic": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Apple India": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -79,11 +103,29 @@
   },
   "Arcesium": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
+  "Arrow Electronics": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Arrowstreet Capital": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Arup India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Asana": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -97,17 +139,29 @@
   },
   "Atlan": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Atlassian India": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
+  "Autodesk": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "BMW Group India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Bank of America": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -127,11 +181,29 @@
   },
   "Blackhawk Network India": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
+  "Blackstone": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Block (Square)": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Bloomberg India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Boeing": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -143,15 +215,27 @@
     "last_error": null,
     "recovered": false
   },
+  "Booz Allen Hamilton": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Brocolli (unconfirmed)": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "BrowserStack": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Builder.ai": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -161,13 +245,31 @@
     "last_error": null,
     "recovered": false
   },
+  "C3.ai": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "CRED": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Capgemini": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Capital One": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Carousel (unconfirmed)": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -187,17 +289,23 @@
   },
   "Catchpoint": {
     "alerted": true,
-    "consecutive_errors": 453,
+    "consecutive_errors": 454,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Chargebee": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Cisco India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Citadel": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -229,7 +337,7 @@
   },
   "CleverTap": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -259,7 +367,7 @@
   },
   "CoinSwitch": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -271,7 +379,7 @@
   },
   "Confluent India": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -295,8 +403,14 @@
   },
   "Curefit": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "D.E. Shaw": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "D.E. Shaw India": {
@@ -305,9 +419,15 @@
     "last_error": null,
     "recovered": false
   },
+  "DRW": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Darwinbox": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -319,11 +439,17 @@
   },
   "DataWeave": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Databricks India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Datadog": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -347,13 +473,37 @@
     "last_error": null,
     "recovered": false
   },
+  "Discord": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "DocuSign India": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
+  "DoorDash": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Dream11": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Dropbox": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Duolingo": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -378,6 +528,18 @@
     "recovered": false
   },
   "Eli Lilly": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Emergent (unconfirmed)": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Emerson": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -419,7 +581,19 @@
     "last_error": null,
     "recovered": false
   },
+  "Figma": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Finicity": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Five Rings": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -431,15 +605,21 @@
     "last_error": null,
     "recovered": false
   },
+  "Flow Traders": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Fortanix": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Freshworks": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -455,6 +635,12 @@
     "last_error": null,
     "recovered": false
   },
+  "G-Research": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "GE Aerospace": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -462,6 +648,12 @@
     "recovered": false
   },
   "GE Vernova": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "GitHub": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -517,7 +709,7 @@
   },
   "Harness": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -528,6 +720,18 @@
     "recovered": false
   },
   "Hexalog Technologies": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Honeywell": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Hudson River Trading": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -546,6 +750,12 @@
     "recovered": false
   },
   "IBM India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "IMC Trading": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -570,6 +780,12 @@
     "recovered": false
   },
   "Instabase": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Intel": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -601,8 +817,14 @@
   },
   "Jeeves": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Jump Trading": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Juniper Networks India": {
@@ -613,7 +835,7 @@
   },
   "Juspay": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -625,8 +847,14 @@
   },
   "Khatabook": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Koch Industries": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Kotak Mahindra Bank": {
@@ -655,8 +883,14 @@
   },
   "LambdaTest": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Layer Up (unconfirmed)": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Lenskart": {
@@ -666,6 +900,18 @@
     "recovered": false
   },
   "LinkedIn India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Lowe's India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Lyft": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -708,6 +954,18 @@
     "recovered": false
   },
   "Mastercard India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Matiks": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Maven Securities": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -761,9 +1019,21 @@
     "last_error": null,
     "recovered": false
   },
+  "Milestone (unconfirmed)": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Millennium": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "MoEngage": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -799,7 +1069,7 @@
   },
   "Moveworks": {
     "alerted": true,
-    "consecutive_errors": 406,
+    "consecutive_errors": 407,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -811,7 +1081,7 @@
   },
   "Multiplier": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -833,6 +1103,12 @@
     "last_error": null,
     "recovered": false
   },
+  "Netflix": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Netradyne": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -845,9 +1121,15 @@
     "last_error": null,
     "recovered": false
   },
+  "Nike": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Notion India": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -893,6 +1175,18 @@
     "last_error": null,
     "recovered": false
   },
+  "OpenAI": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Optiver": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Oracle India": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -906,6 +1200,18 @@
     "recovered": false
   },
   "Ozi Technologies": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "PDT Partners": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Palantir": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -955,20 +1261,38 @@
   },
   "PhonePe": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Pinterest": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Pixis": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Plaid": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Plivo": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Point72": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "PolicyBazaar": {
@@ -991,11 +1315,17 @@
   },
   "Progcap": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Prosperr.io": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Quadrature Capital": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1007,13 +1337,43 @@
     "last_error": null,
     "recovered": false
   },
+  "Radix Trading": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Ramp": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Razorpay": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
+  "Red Hat": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Red Nucleus": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Redis": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Redrob": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1031,13 +1391,43 @@
     "last_error": null,
     "recovered": false
   },
+  "Renaissance Technologies": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Ridgewater Capital": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Rippling India": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
+  "Robinhood": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Roblox": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Rubrik India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "SLB": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1051,13 +1441,13 @@
   },
   "SaaS Labs": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Safe Security": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1099,7 +1489,7 @@
   },
   "ShareChat": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1123,7 +1513,7 @@
   },
   "Simpl": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1141,8 +1531,14 @@
   },
   "Slice": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Snap": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Snivaa Consulting Engineers": {
@@ -1153,7 +1549,7 @@
   },
   "Snowflake India": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1169,10 +1565,22 @@
     "last_error": null,
     "recovered": false
   },
+  "Spotify": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Sprinklr India": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Squarepoint Capital": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Stampmyvisa": {
@@ -1187,6 +1595,12 @@
     "last_error": null,
     "recovered": false
   },
+  "Susquehanna (SIG)": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Svamaan Financial Services": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -1195,7 +1609,7 @@
   },
   "Swiggy": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1218,6 +1632,12 @@
     "recovered": false
   },
   "TCS": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "TGS Management": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1247,7 +1667,19 @@
     "last_error": null,
     "recovered": false
   },
+  "Tesla": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Tower Research Capital": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Trellix": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1265,7 +1697,25 @@
     "last_error": null,
     "recovered": false
   },
+  "TrueFirms": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Twilio India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Twitch": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Two Sigma": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1285,13 +1735,13 @@
   },
   "Uptycs": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Urban Company": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1325,7 +1775,19 @@
     "last_error": null,
     "recovered": false
   },
+  "Virtu Financial": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Visa India": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "Voleon": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,
@@ -1345,8 +1807,14 @@
   },
   "Wayfair India": {
     "alerted": true,
-    "consecutive_errors": 510,
+    "consecutive_errors": 511,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Wells Fargo": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Western Digital": {
@@ -1357,8 +1825,14 @@
   },
   "Whatfix": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
+    "recovered": false
+  },
+  "Wingify": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
     "recovered": false
   },
   "Wipro": {
@@ -1367,15 +1841,27 @@
     "last_error": null,
     "recovered": false
   },
+  "WorldQuant": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "XTX Markets": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "Yellow.ai": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "Yubi": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1387,7 +1873,7 @@
   },
   "Zepto": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1399,7 +1885,7 @@
   },
   "Zeta": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
@@ -1427,6 +1913,12 @@
     "last_error": null,
     "recovered": false
   },
+  "eBay": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
   "mPokket": {
     "alerted": false,
     "consecutive_errors": 0,
@@ -1435,11 +1927,17 @@
   },
   "smallcase": {
     "alerted": true,
-    "consecutive_errors": 950,
+    "consecutive_errors": 951,
     "last_error": "HTTP error / timeout / exception",
     "recovered": false
   },
   "super.money": {
+    "alerted": false,
+    "consecutive_errors": 0,
+    "last_error": null,
+    "recovered": false
+  },
+  "xAI": {
     "alerted": false,
     "consecutive_errors": 0,
     "last_error": null,

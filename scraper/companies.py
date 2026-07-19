@@ -5,39 +5,57 @@
 #
 # Changes vs previous version:
 #   FIXED  — Google India: ats was "workday" but URL is careers.google.com (Google's own
-#             custom site, not myworkdayjobs.com) → corrected to "playwright"
+#             custom site, not myworkdayjobs.com) -> corrected to "playwright"
 #   FIXED  — Nvidia India: ats was "playwright" but URL is nvidia.wd5.myworkdayjobs.com
-#             (genuine Workday tenant) → corrected to "workday"
+#             (genuine Workday tenant) -> corrected to "workday"
 #   FIXED  — Akamai India: ats was "playwright" but URL is akamai.wd1.myworkdayjobs.com
-#             (genuine Workday tenant) → corrected to "workday"
+#             (genuine Workday tenant) -> corrected to "workday"
 #   FIXED  — Cisco India: ats was "workday" but URL is jobs.cisco.com (Cisco's own
-#             custom site, not myworkdayjobs.com) → corrected to "playwright"
+#             custom site, not myworkdayjobs.com) -> corrected to "playwright"
 #   FIXED  — Juniper Networks India: ats was "workday" but URL is careers.juniper.net
-#             (custom site) → corrected to "playwright"
+#             (custom site) -> corrected to "playwright"
 #   FIXED  — Palo Alto Networks India: ats was "workday" but URL is
-#             jobs.paloaltonetworks.com (custom site) → corrected to "playwright"
+#             jobs.paloaltonetworks.com (custom site) -> corrected to "playwright"
 #   FIXED  — Accenture: ats was "workday" but URL is accenture.com/in-en/careers
-#             (custom site) → corrected to "playwright"
+#             (custom site) -> corrected to "playwright"
 #   FIXED  — Twilio India: ats was "workday" and URL was a Greenhouse public board page
-#             (boards.greenhouse.io/twilio, not an API endpoint) → corrected ats to
+#             (boards.greenhouse.io/twilio, not an API endpoint) -> corrected ats to
 #             "greenhouse" and URL to the actual Greenhouse API endpoint
 #
-#   NOTE ON THIS REVISION'S ADDITIONS — these come from a raw BITS placement-portal
-#   "station name" list, not from live verification of each career page. Company names
-#   were deduplicated against roles/teams already tracked (e.g. "Amazon SDE",
-#   "Amazon Applied Scientist" and "Amazon Solution Architect" all map to the existing
-#   "Amazon / AWS" entry; "Micron Technology - AI/ML", "- DEG Verification", etc. all
-#   map to the existing "Micron Technology" entry; same for HSBC's 3 roles, GE's teams,
-#   Warner Bros' 4 teams, Synchrony's 4 roles, Varaha's 6 roles, Ozi's 4 roles, and so on).
-#   For every genuinely new company below, the "ats" field defaults to "playwright"
-#   (generic scrape) rather than guessing an exact Workday tenant subdomain or
-#   Greenhouse/Lever board slug — getting that slug wrong silently breaks an API-based
-#   scraper, whereas playwright degrades gracefully. Where a company is widely known to
-#   run on Workday/Greenhouse, that's flagged in a NOTE so it can be upgraded once
-#   confirmed live. A handful of small/unlisted firms (Global Innovation Hub, Ozi
-#   Technologies, Intelenergi Global, Clarity, and a few others) had no confidently
-#   identifiable public career-page domain — flagged explicitly rather than fabricated.
-#   Recommend spot-checking these before switching on the cron job.
+#   NOTE ON REVISION 1's ADDITIONS — these came from a raw BITS placement-portal
+#   "station name" list, not from live verification of each career page. For every
+#   genuinely new company, the "ats" field defaults to "playwright" (generic scrape)
+#   rather than guessing an exact Workday tenant subdomain or Greenhouse/Lever board
+#   slug — getting that slug wrong silently breaks an API-based scraper, whereas
+#   playwright degrades gracefully. Where a company is widely known to run on
+#   Workday/Greenhouse, that's flagged in a NOTE so it can be upgraded once confirmed
+#   live. A handful of small/unlisted firms had no confidently identifiable public
+#   career-page domain — flagged explicitly rather than fabricated.
+#
+#   REVISION 2 (July 19, 2026) — added the user's "God Tier" through "B-" quant-fund
+#   and big-tech tier list (~90 companies). Verified live via web search where possible:
+#     CONFIRMED  — DRW is genuinely Greenhouse-backed (job-boards.greenhouse.io/drweng)
+#     CONFIRMED  — Renaissance Technologies, Citadel, Point72, Hudson River Trading,
+#                  Optiver, Two Sigma, Akuna Capital, DE Shaw all run fully custom
+#                  career sites (not on a public ATS API) -> ats set to "playwright"
+#                  with the real, verified URL.
+#   Everything else in this revision defaults to "playwright" with a NOTE flag, same
+#   policy as Revision 1: many quant funds (Jump Trading, Millennium, AQR, SIG,
+#   G-Research, WorldQuant, Squarepoint, Virtu, Maven Securities, Five Rings, Voleon,
+#   XTX Markets, Quadrature, Radix, TGS, Arrowstreet, PDT) almost certainly have a
+#   working public careers page at the domain guessed below, but the exact URL path
+#   and whether it's secretly Greenhouse/Lever-backed was NOT individually verified —
+#   confirm before switching any of these to an API-based ats type.
+#   "Ridgewater Capital" could not be confidently identified as a real, distinct firm
+#   (not a recognized name in the quant-fund space) — flagged with an empty URL rather
+#   than a guessed one; please double-check the intended firm name.
+#
+#   SKIPPED AS DUPLICATES (already exist above under an existing entry, so NOT
+#   re-added): Jane Street, D.E. Shaw, Tower Research Capital, Google, Amazon/AWS,
+#   Microsoft, Meta, Apple, Nvidia, LinkedIn, Airbnb, Databricks, Stripe, PayPal,
+#   Coinbase, Bloomberg, Snowflake, Rubrik, Notion, Coupang, Adobe, Cloudflare, Oracle,
+#   Atlassian, Salesforce, Uber, JPMorgan Chase, Morgan Stanley, Booking.com,
+#   BlackRock, IBM, Citi, Goldman Sachs, Walmart.
 
 COMPANIES = [
     # ── Big Tech ──────────────────────────────────────────────────────────────
@@ -440,4 +458,152 @@ COMPANIES = [
     # NOTE: name is too generic to confidently resolve to a specific company/domain —
     # confirm the exact entity with the placement cell before adding a scraper
     {"name": "Clarity",                   "ats": "playwright", "url": ""},
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # ── God Tier — Quant / HFT ────────────────────────────────────────────────
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Renaissance Technologies",  "ats": "playwright", "url": "https://www.rentec.com/Careers.action?jobs=true"},
+    # NOTE: domain is the real firm site; exact careers path unverified — confirm before deploying
+    {"name": "Radix Trading",             "ats": "playwright", "url": "https://www.radixtrading.co/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "TGS Management",            "ats": "playwright", "url": "https://www.tgsmanagement.com/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Arrowstreet Capital",       "ats": "playwright", "url": "https://www.arrowstreetcapital.com/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "PDT Partners",              "ats": "playwright", "url": "https://www.pdtpartners.com/careers"},
+
+    # ── SSS Tier — Quant / HFT ────────────────────────────────────────────────
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Citadel",                   "ats": "playwright", "url": "https://www.citadel.com/careers/"},
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Point72",                   "ats": "playwright", "url": "https://careers.point72.com/"},
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Hudson River Trading",      "ats": "playwright", "url": "https://www.hudsonrivertrading.com/careers/"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Jump Trading",              "ats": "playwright", "url": "https://www.jumptrading.com/careers/"},
+    # NOTE: could not confidently identify this as a real, distinct quant firm — this
+    # name does not appear in industry firm lists alongside the others in this tier;
+    # please double check the intended company name before adding a live scraper
+    {"name": "Ridgewater Capital",        "ats": "playwright", "url": ""},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Quadrature Capital",        "ats": "playwright", "url": "https://www.quadrature.ai/careers"},
+
+    # ── SS Tier — Quant / HFT ─────────────────────────────────────────────────
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Optiver",                   "ats": "playwright", "url": "https://www.optiver.com/join-us/jobs"},
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Two Sigma",                 "ats": "playwright", "url": "https://careers.twosigma.com/"},
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "D.E. Shaw",                 "ats": "playwright", "url": "https://www.deshaw.com/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Five Rings",                "ats": "playwright", "url": "https://www.fiveringscapital.com/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Voleon",                    "ats": "playwright", "url": "https://voleon.com/careers/"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "XTX Markets",               "ats": "playwright", "url": "https://www.xtxmarkets.com/careers/"},
+    # NOTE: widely known as "Susquehanna International Group (SIG)"; domain
+    # unverified exact careers path — confirm before deploying
+    {"name": "Susquehanna (SIG)",         "ats": "playwright", "url": "https://careers.sig.com/"},
+
+    # ── SS- Tier — Quant / HFT ────────────────────────────────────────────────
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "IMC Trading",               "ats": "playwright", "url": "https://careers.imc.com/global/en"},
+    # CONFIRMED: DRW is genuinely Greenhouse-backed
+    {"name": "DRW",                       "ats": "greenhouse", "greenhouse_id": "drweng",       "url": "https://api.greenhouse.io/v1/boards/drweng/jobs"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Virtu Financial",           "ats": "playwright", "url": "https://www.virtu.com/careers/"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Maven Securities",          "ats": "playwright", "url": "https://www.mavensecurities.com/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Millennium",                "ats": "playwright", "url": "https://www.millennium.com/careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "AQR Capital",               "ats": "playwright", "url": "https://www.aqr.com/Careers"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "G-Research",                "ats": "playwright", "url": "https://www.gresearch.com/careers/"},
+
+    # ── S Tier ────────────────────────────────────────────────────────────────
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "WorldQuant",                "ats": "playwright", "url": "https://www.worldquant.com/careers/"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Squarepoint Capital",       "ats": "playwright", "url": "https://www.squarepoint-capital.com/careers"},
+    # CONFIRMED live: custom career site, not on a public ATS API
+    {"name": "Akuna Capital",             "ats": "playwright", "url": "https://akunacapital.com/careers/"},
+    # NOTE: domain unverified — confirm before deploying
+    {"name": "Flow Traders",              "ats": "playwright", "url": "https://www.flowtraders.com/careers"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Anthropic",                 "ats": "playwright", "url": "https://www.anthropic.com/careers"},
+    # NOTE: OpenAI's careers site is not on the classic Greenhouse/Lever API pattern —
+    # confirm exact ATS before switching ats type
+    {"name": "OpenAI",                    "ats": "playwright", "url": "https://openai.com/careers/"},
+    {"name": "Netflix",                   "ats": "playwright", "url": "https://explore.jobs.netflix.net/careers"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Roblox",                    "ats": "playwright", "url": "https://careers.roblox.com/jobs"},
+
+    # ── A+ Tier ───────────────────────────────────────────────────────────────
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Duolingo",                  "ats": "playwright", "url": "https://careers.duolingo.com/"},
+    {"name": "Block (Square)",            "ats": "playwright", "url": "https://block.xyz/careers"},
+    {"name": "Tesla",                     "ats": "playwright", "url": "https://www.tesla.com/careers/search/?query={role}&region=India"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "DoorDash",                  "ats": "playwright", "url": "https://careers.doordash.com/"},
+
+    # ── A Tier ────────────────────────────────────────────────────────────────
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Asana",                     "ats": "playwright", "url": "https://asana.com/jobs"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Datadog",                   "ats": "playwright", "url": "https://careers.datadoghq.com/"},
+    {"name": "Snap",                      "ats": "playwright", "url": "https://careers.snap.com/jobs"},
+    # NOTE: possibly Greenhouse or Ashby-backed; unverified — confirm before switching ats type
+    {"name": "Ramp",                      "ats": "playwright", "url": "https://ramp.com/careers"},
+    {"name": "Spotify",                   "ats": "playwright", "url": "https://www.lifeatspotify.com/jobs"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Dropbox",                   "ats": "playwright", "url": "https://dropbox.com/jobs"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Pinterest",                 "ats": "playwright", "url": "https://www.pinterestcareers.com/"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Plaid",                     "ats": "playwright", "url": "https://plaid.com/careers/"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Figma",                     "ats": "playwright", "url": "https://www.figma.com/careers/"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Discord",                   "ats": "playwright", "url": "https://discord.com/careers"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "Robinhood",                 "ats": "playwright", "url": "https://careers.robinhood.com/"},
+    {"name": "C3.ai",                     "ats": "playwright", "url": "https://c3.ai/careers/"},
+
+    # ── B+ Tier ───────────────────────────────────────────────────────────────
+    {"name": "Blackstone",                "ats": "playwright", "url": "https://www.blackstone.com/careers/"},
+    {"name": "eBay",                      "ats": "playwright", "url": "https://ebaycareers.com/"},
+    # NOTE: widely believed to use Ashby, not Greenhouse — confirm before switching
+    # ats type
+    {"name": "xAI",                       "ats": "playwright", "url": "https://x.ai/careers"},
+    # NOTE: widely believed to be Greenhouse-backed; board slug unverified — confirm
+    # before switching ats type
+    {"name": "GitHub",                    "ats": "playwright", "url": "https://github.careers/"},
+    {"name": "Palantir",                  "ats": "playwright", "url": "https://www.palantir.com/careers/"},
+    {"name": "Lyft",                      "ats": "playwright", "url": "https://www.lyft.com/careers"},
+    # NOTE: Twitch is Amazon-owned and hiring routes through amazon.jobs
+    {"name": "Twitch",                    "ats": "playwright", "url": "https://www.amazon.jobs/en/teams/Twitch"},
+
+    # ── B Tier ────────────────────────────────────────────────────────────────
+    {"name": "Capital One",               "ats": "playwright", "url": "https://www.capitalonecareers.com/"},
+    {"name": "Intel",                     "ats": "playwright", "url": "https://jobs.intel.com/en/search-jobs"},
+
+    # ── B- Tier ───────────────────────────────────────────────────────────────
+    {"name": "Wells Fargo",               "ats": "playwright", "url": "https://www.wellsfargojobs.com/"},
+    {"name": "Bank of America",           "ats": "playwright", "url": "https://careers.bankofamerica.com/"},
+    {"name": "Boeing",                    "ats": "playwright", "url": "https://jobs.boeing.com/"},
+    {"name": "Booz Allen Hamilton",       "ats": "playwright", "url": "https://careers.boozallen.com/"},
+    {"name": "Arrow Electronics",         "ats": "playwright", "url": "https://careers.arrow.com/"},
 ]

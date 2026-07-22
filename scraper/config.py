@@ -30,6 +30,10 @@ ROLE_KEYWORDS = [
     "Backend Engineer",
     "Site Reliability",
     "Platform Engineer",
+    "member of technical staff",
+    "mts",
+    "amts",
+    "associate member of technical staff"
 ]
 
 # India location keywords — job must match at least one (case-insensitive)

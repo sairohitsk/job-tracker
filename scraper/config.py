@@ -33,7 +33,9 @@ ROLE_KEYWORDS = [
     "member of technical staff",
     "mts",
     "amts",
-    "associate member of technical staff"
+    "associate member of technical staff",
+    "developer",
+    "analyst"
 ]
 
 # India location keywords — job must match at least one (case-insensitive)
